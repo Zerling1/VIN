@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">VIN</string>
+    <string name="edit_message">Wprowadź win</string>
+    <string name="button_send">Wyślij</string>
+    <string name="edit_message2">Wprowadź numery rej.</string>
+    <string name="button_send2">Wyślij</string>
+    <string name="edit_message3">Wprowadź win</string>
+    <string name="edit_message4">Wprowadź numery rej.</string>
+    <string name="edit_message5">Data pierwszej rejestracji</string>
+    <string name="button_send3">Wyślij</string>
+</resources>
