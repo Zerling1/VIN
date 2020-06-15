@@ -23,17 +23,16 @@ public class DisplayMessageActivity2 extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        final String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.textView5);
-        textView.setText(message);
+
 
 
         final WebView webView = (WebView)findViewById(R.id.webview2);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
+        final String pwd = message ;
 //load the page with cache
         if (Build.VERSION.SDK_INT >= 19) {
             webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
@@ -61,8 +60,8 @@ public class DisplayMessageActivity2 extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url)
             {
+                // "YL53 RRU"
 
-                String pwd="YL53 RRU";
                 view.loadUrl("javascript: var elements = document.getElementById('wizard_vehicle_enquiry_capture_vrn_vrn').value = '"+pwd+"'");
                 view.loadUrl("javascript: var elements = document.getElementById('submit_vrn_button').click();");
                 view.loadUrl("javascript: var elements = document.getElementById('yes-vehicle-confirm').click();");

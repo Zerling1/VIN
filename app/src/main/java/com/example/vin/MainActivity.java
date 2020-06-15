@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editText5;
     private static final String DATE_PATTERN =    "(0?[1-9]|1[012]) [.] (0?[1-9]|[12][0-9]|3[01]) [.] ((19|20)\\d\\d)";
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String EXTRA_MESSAGE2 = "com.example.myfirstapp.MESSAGE2";
+    public static final String EXTRA_MESSAGE3 = "com.example.myfirstapp.MESSAGE3";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,18 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        editText3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
 
-                boolean check1 = editText3.getText().length()!=0;
-                boolean check2 = editText3.getText().length()!=7;
-                if(check1&&check2) {
-                    editText3.setError("Błędny format numerów rejestracyjnych");
-                }
-            }
-
-        });
         editText4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -113,18 +104,28 @@ public class MainActivity extends AppCompatActivity {
     }
     public void sendMessage2(View view) {
         Intent intent = new Intent(this,  DisplayMessageActivity2.class);
-        EditText editText = (EditText) findViewById(R.id.editText2);
-        String message = editText.getText().toString();
+        EditText editText2 = (EditText) findViewById(R.id.editText2);
+        String message = editText2.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
 
     }
 
     public void sendMessage3(View view) {
+
+        EditText editText3 = (EditText) findViewById(R.id.editText3);
+        String message = editText3.getText().toString();
+
+        EditText editText4 = (EditText) findViewById(R.id.editText4);
+        String message1 = editText4.getText().toString();
+
+        EditText editText5 = (EditText) findViewById(R.id.editText5);
+        String message2 = editText5.getText().toString();
+
         Intent intent = new Intent(this,  DisplayMessageActivity3.class);
-        EditText editText = (EditText) findViewById(R.id.editText4);
-        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE2, message1);
         intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(EXTRA_MESSAGE3, message2);
         startActivity(intent);
 
     }

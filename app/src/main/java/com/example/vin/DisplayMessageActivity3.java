@@ -22,11 +22,11 @@ public class DisplayMessageActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_display_message3);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        final String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+         final String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
+        final String message3 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE3);
+         // Capture the layout's TextView and set the string as its text
 
-        // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.textView6);
-        textView.setText(message);
 
 
         final WebView webView = (WebView)findViewById(R.id.webview3);
@@ -60,10 +60,13 @@ public class DisplayMessageActivity3 extends AppCompatActivity {
             public void onPageFinished(WebView view, String url)
             {
 
-                String pwd1="SZY58214";
-                String pwd2="WBAPX51060C147585";
-                String pwd3="28.01.2011";
-                view.loadUrl("javascript: var elements = document.getElementById('_historiapojazduportlet_WAR_historiapojazduportlet_:rej').value = '"+pwd1+"'");
+                final String pwd = message ;
+                final String pwd2 = message2 ;
+                        //"SZY58214";
+                final String pwd3 = message3 ;
+                    //"WBAPX51060C147585";
+                //String pwd3="28.01.2011";
+                view.loadUrl("javascript: var elements = document.getElementById('_historiapojazduportlet_WAR_historiapojazduportlet_:rej').value = '"+pwd+"'");
                 view.loadUrl("javascript: var elements = document.getElementById('_historiapojazduportlet_WAR_historiapojazduportlet_:vin').value = '"+pwd2+"'");
                 view.loadUrl("javascript: var elements = document.getElementById('_historiapojazduportlet_WAR_historiapojazduportlet_:data').value = '"+pwd3+"'");
                 view.loadUrl("javascript: var elements = document.getElementById('_historiapojazduportlet_WAR_historiapojazduportlet_:btnSprawdz').click();");
